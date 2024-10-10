@@ -3,24 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pate</title>
+    <title>Peddy</title>
     <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon">
-    <link rel="stylesheet" href="/style/style.css">
+  
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/067b8f765e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav>
-
-        </nav>
+      <nav>
+        <div class="navbar bg-base-100">
+            <div class="flex-1">
+              <a class="btn btn-ghost text-xl"><img src="/images/logo.webp" alt="">Peddy</a>
+            </div>
+            <div class="">
+                 <a class="link link-hover hidden">Design</a>
+                 <a class="link link-hover hidden">Marketing</a>
+                 <a class="link link-hover hidden">Advertisement</a>
+            </div>
+              <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                  <div class="w-10 rounded-full">
+                    <i class="fa-regular fa-user"></i>
+                  </div>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                  <li>
+                    <a class="justify-between">
+                      Profile
+                      <span class="badge">New</span>
+                    </a>
+                  </li>
+                  <li><a>Settings</a></li>
+                  <li><a>Logout</a></li>
+                </ul>
+              </div>
+            
+          </div>
+      </nav>
     </header>
+    
     <main>
+      <div class="flex justify-center ">
+        <img  src="/images/pet.webp" alt="">
+      </div>
+      <div id="categories" class="flex justify-center gap-5">
+        
+      </div>
+     <section id="cards" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10">
 
+     </section>
     </main>
     
     <footer>
-
+        <footer class="footer bg-base-200 text-base-content p-10">
+          
+            <nav>
+              <h6 class="footer-title">Company</h6>
+              <a class="link link-hover">About us</a>
+              <a class="link link-hover">Contact</a>
+              <a class="link link-hover">Jobs</a>
+              <a class="link link-hover">Press kit</a>
+            </nav>
+            <nav>
+              <h6 class="footer-title">Legal</h6>
+              <a class="link link-hover">Terms of use</a>
+              <a class="link link-hover">Privacy policy</a>
+              <a class="link link-hover">Cookie policy</a>
+            </nav>
+            <form>
+              <h6 class="footer-title">Newsletter</h6>
+              <fieldset class="form-control w-80">
+               
+                <div class="join">
+                 <input type="text" name="" id="" placeholder="">
+                 
+                </div>
+                <button class="btn btn-primary ">Subscribe</button>
+              </fieldset>
+            </form>
+          </footer>
     </footer>
 
 
