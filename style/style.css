@@ -1,5 +1,18 @@
 .active{
    background-color: aqua;
    border-radius: 20px;
-   
+   z-index: 1;
+}
+#vewbtn{
+   font-weight: 700;
+    padding: 13px 28px 13px 28px;
+    border-radius: 12px;
+
+background: rgb(14, 122, 129);
+}
+#btn{
+    background: rgb(14, 122, 129); 
+}
+.link{
+    color: rgba(234, 246, 246, 0.667);
 }

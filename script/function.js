@@ -31,7 +31,7 @@ const removeActiveClass=()=>{
     };
  };
  const loadDetails=async(cardsId)=>{
-    console.log(cardsId);
+   
     const uri=`https://openapi.programming-hero.com/api/peddy/category/${cardsId}`;
     const res=await fetch(uri);
     const data =await res.json();
@@ -48,7 +48,17 @@ const removeActiveClass=()=>{
 
     document.getElementById("customModal").showModal();
  }
-
+const sortByPrice=async(a)=>{
+    const uri=(`https://openapi.programming-hero.com/api/peddy/pets`)
+    const res=await fetch(uri);
+    const data=await res.json();
+    const shortPrice=data.data;
+    const sortByPrice=shortPrice.sort((a,b)=>{
+        return b-a;
+    });
+   
+   
+}
 const displayPets =(pets) =>{
    
     const cardContainer=document.getElementById("cards");
@@ -70,7 +80,7 @@ const displayPets =(pets) =>{
         cardContainer.classList.add("grid");
     }
     pets.forEach((pet)=>{
-console.log(pet)
+
         const breed =pet.breed||"Not Available "
         const birth =pet.date_of_birth||"Not Available "
         const gender=pet.gender||"Not Available "
@@ -133,6 +143,7 @@ console.log(pet)
     })
 }
 
+
 const displayCategories= (categories)=>{
     const categoryContainer=document.getElementById("categories");
    
@@ -140,7 +151,7 @@ const displayCategories= (categories)=>{
            const buttonContainer=document.createElement('div');
            buttonContainer.innerHTML=
            `
-           <button id="btn-${item.category}" onclick="loadCategoryCard('${item.category}')" class="btn category-btn   ">
+           <button id="btn-${item.category}" onclick="loadCategoryCard('${item.category}')" class="btn btn-outline category-btn  z-index-0 ">
            <img class="h-6 w-6 lg:h-10 lg:w-10" src="${item.category_icon}"/>
            ${item.category}
            
@@ -154,3 +165,4 @@ const displayCategories= (categories)=>{
 };
 loadCategories();
 loadCards();
+sortByPrice();
