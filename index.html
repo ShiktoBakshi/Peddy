@@ -22,9 +22,9 @@
                 </div>
              </div>
             <div class="navbar-center gap-2 lg:gap-5">
-                 <a class="link link-hover ">Home</a>
-                 <a class="link link-hover ">Shop</a>
-                 <a class="link link-hover">Contact</a>
+                 <a class=" link-hover ">Home</a>
+                 <a class=" link-hover ">Shop</a>
+                 <a class=" link-hover">Contact</a>
             </div>
             <div class="navbar-end">
               <i class="fa-regular fa-user"></i>
@@ -35,6 +35,7 @@
     </header>
     
     <main>
+     
       <h4 class="text-center my-6">Bringing Families Together ❤️‍🔥</h4>
       <h1 class="text-center my-4 font-bold text-5xl"> 
         Your Path to Adoption <br> Starts Here</h1>
@@ -55,8 +56,12 @@
 bvdsertyuikl
         </button>
       </div>
-      <div id="categories" class="flex justify-center gap-5">
+      
+      <div id="categories" class="flex justify-center gap-2 lg:gap-5">
 
+      </div>
+      <div class="flex justify-center py-10">
+        <span id="loading" class="loading loading-bars loading-md "></span>
       </div>
      <section id="cards" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10">
 
@@ -64,7 +69,7 @@ bvdsertyuikl
     </main>
     
     <footer>
-        <footer class="footer flex justify-evenly  bg-black text-base-content p-10">
+        <footer class="footer lg:flex lg:justify-evenly   bg-black text-base-content p-10">
           
             <nav>
               <h6 class="flex font-bold text-xl gap-2 text-white"><img src="/images/logo.webp" alt="">  Peddy</h6>
@@ -95,12 +100,12 @@ bvdsertyuikl
           </footer>
     </footer>
 <!-- Open the modal using ID.showModal() method -->
-<button id="showModal" class="btn Hidden" onclick="customModal.showModal()"></button>
+<button id="showModal" class="btn hidden" onclick="customModal.showModal()">show Modal</button>
 <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
    
     <div class="modal-action">
-      <form method="dialog">
+      <form method="dialog flex justify-center">
         <!-- if there is a button in form, it will close the modal -->
         <button class="btn ">Close</button>
       </form>

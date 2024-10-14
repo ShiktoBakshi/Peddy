@@ -20,10 +20,12 @@ const loadCategoryCard=(id)=> {
         removeActiveClass()
          const activeBtn=document.getElementById(`btn-${id}`)
          activeBtn.classList.add("active");
+      
         displayPets(data.data);
     })
-   
+  
 };
+
 const removeActiveClass=()=>{
     const buttons= document.getElementsByClassName(`category-btn`);
     for(let btn of buttons){
@@ -37,6 +39,23 @@ const removeActiveClass=()=>{
     const data =await res.json();
     displayDetails(data.data)
  }
+ function showLoading(callback) {
+    const active=document.getElementById(`loading`)
+    active.classList.remove("hidden");
+    setTimeout(() => {
+        const active=document.getElementById(`loading`)
+        active.classList.add("hidden");
+      callback();
+    }, 3000);
+  }
+  
+  
+  showLoading(loadCards);
+  
+ 
+
+
+
  const displayDetails=(card)=>{
     console.log(card);
     const detailContainer=document.getElementById("modal-box");
@@ -151,7 +170,7 @@ const displayCategories= (categories)=>{
            const buttonContainer=document.createElement('div');
            buttonContainer.innerHTML=
            `
-           <button id="btn-${item.category}" onclick="loadCategoryCard('${item.category}')" class="btn btn-outline category-btn  z-index-0 ">
+           <button id="btn-${item.category}" onclick="loadCategoryCard('${item.category}')" class="btn btn-outline category-btn  ">
            <img class="h-6 w-6 lg:h-10 lg:w-10" src="${item.category_icon}"/>
            ${item.category}
            
@@ -164,5 +183,5 @@ const displayCategories= (categories)=>{
    
 };
 loadCategories();
-loadCards();
+
 sortByPrice();
