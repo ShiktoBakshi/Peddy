@@ -34,14 +34,14 @@
       </nav>
     </header>
     
-    <main>
+    <main >
      
       <h4 class="text-center my-6">Bringing Families Together ❤️‍🔥</h4>
       <h1 class="text-center my-4 font-bold text-5xl"> 
         Your Path to Adoption <br> Starts Here</h1>
         <p class="text-center">Imagine a room filled with animals ready to find their forever homes,<br> volunteers bustling around making sure every pet and potential owner is comfortable,<br> and families walking in excited but a bit nervous</p> <br>
         <div  class="flex justify-center ">
-          <button id="vewbtn">Vew More</button>
+         <a href="#main-section"> <button id="vewbtn">Vew More</button></a>
         </div>
       <div  class="flex justify-center ">
         
@@ -51,20 +51,32 @@
         Adopt  Your  Best Friend
       </h2>
       <p class="text-center py-5">You walk into the shelter, and there he is—a fluffy,<br> enthusiastic bundle of joy, wagging his tail so hard he might just take off. <br> His eyes are wide with curiosity and a hint of mischief, just waiting to explore the world with his new best friend</p>
-      <div id="sortByPrice" class=" ">
-        <button onclick="sortByPrice" class="btn">
-bvdsertyuikl
-        </button>
+      <div id="sortByPrice" class="flex justify-between px-10 py-10" >
+        <div class="font-bold text-l">
+          Best Deal For you
+        </div>
+        <div>
+          <button class=" sort">
+            Sort By Price
+          </button>
+        </div>
       </div>
       
-      <div id="categories" class="flex justify-center gap-2 lg:gap-5">
+      <div id="categories" class="flex justify-center gap-1 px-2 lg:gap-5">
 
       </div>
       <div class="flex justify-center py-10">
         <span id="loading" class="loading loading-bars loading-md "></span>
       </div>
-     <section id="cards" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10">
+     <section id="main-section" class="mx-auto px-1 lg:px-3">
+      <div class="flex lg:gap-2 gap-1">
+        <div  id="cards" class="w-9/12  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
 
+        </div>
+        <div id="like" class="w-3/12  border">
+
+        </div>
+      </div>
      </section>
     </main>
     
@@ -77,6 +89,12 @@ bvdsertyuikl
               <a class="link link-hover">Phone: +31 85 964 47 25</a>
               <a class="link link-hover">Email: info@yourdomain.com</a>
               <a class="link link-hover">Openings hours: 9.00 AM - 5.00 PM</a>
+              <div class="flex gap-3 ">
+                
+                <a class="link link-hover"><img src="https://img.icons8.com/?size=32&id=shZNtQPsMJ6i&format=png" alt=""></a>
+                <a class="link link-hover"><img src="https://img.icons8.com/?size=32&id=ChMMcyjCQnEn&format=png" alt=""></a>
+                <a class="link link-hover "><img src="https://img.icons8.com/?size=32&id=_4jOh14ELS5g&format=png" alt=""></a>
+              </div>
             </nav>
             <nav>
               <h6 class="font-bold text-l text-white">Useful Links</h6>
@@ -100,19 +118,35 @@ bvdsertyuikl
           </footer>
     </footer>
 <!-- Open the modal using ID.showModal() method -->
-<button id="showModal" class="btn hidden" onclick="customModal.showModal()">show Modal</button>
-<dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+<button class="btn hidden" onclick="adopt_modal.showModal()">open modal</button>
+<dialog id="adopt_modal" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
-   
+    <div id="modal_adopt">
+
+    </div>
     <div class="modal-action">
-      <form method="dialog flex justify-center">
+      <form method="dialog">
         <!-- if there is a button in form, it will close the modal -->
-        <button class="btn ">Close</button>
+        <button class="btn">Close</button>
       </form>
     </div>
   </div>
 </dialog>
+<!-- Open the modal using ID.showModal() method -->
+<button class="btn hidden" onclick="custom_modal.showModal()">open modal</button>
+<dialog id="custom_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="modal_container">
 
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn btn-wide ">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
     <!-- java-Script  -->
 <script src="/script/function.js"></script>
 </body>

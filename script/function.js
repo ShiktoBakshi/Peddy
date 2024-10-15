@@ -32,13 +32,75 @@ const removeActiveClass=()=>{
      btn.classList.remove("active")
     };
  };
- const loadDetails=async(cardsId)=>{
+
+
+ const loadDetails=async(petId)=>{
    
-    const uri=`https://openapi.programming-hero.com/api/peddy/category/${cardsId}`;
-    const res=await fetch(uri);
+    const url=`https://openapi.programming-hero.com/api/peddy/pet/${petId}`;
+    const res=await fetch(url);
     const data =await res.json();
-    displayDetails(data.data)
- }
+    displayDetails(data.petData)
+  }
+  const displayDetails=(petData)=>{
+    const detailsContainer=document.getElementById("modal_container");
+  
+ const breed =petData.breed||"Not Available "
+ const birth =petData.date_of_birth||"Not Available "
+ const gender=petData.gender||"Not Available "
+ const price=petData.price||"Not Available "
+
+
+ detailsContainer.innerHTML=
+ ` 
+<figure class="h-[200px]">
+<img
+src=${petData.image}
+class="h-full w-full object-cover"
+alt="" />
+</figure>
+<div class="px-0 py-2">
+<h3 class="font font-bold text-xl"> ${petData.pet_name}</h3>
+<div class="flex">
+<div class="h-5 w-5">
+<img src="https://img.icons8.com/?size=64&id=24054&format=png"/>
+</div>
+<p>Breed: ${breed} </p>
+</div>
+<div class="flex">
+<div class="h-5 w-5">
+<img src="https://img.icons8.com/?size=100&id=23&format=png"/>
+</div>
+<p>Birth: ${birth} </p>
+</div>
+<div class="flex">
+<div class="h-5 w-5">
+<img src="https://img.icons8.com/?size=160&id=47187&format=png"/>
+</div>
+<p>Gender: ${gender} </p>
+</div>
+<div class="flex">
+<div class="h-5 w-5">
+<img src="https://img.icons8.com/?size=48&id=85782&format=png"/>
+</div>
+<p> Price: ${price} </p>
+</div>
+<div class="flex" >
+    <img class="w-5 h-5" src="https://img.icons8.com/?size=30&id=79722&format=png" alt="virus logo" />
+    <p>Vaccinated status: ${petData.vaccinated_status}</p>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3 class="text-lg font-bold mt-3"> Details Information </h3>
+    <p>${petData.pet_details}</p>
+    </div>
+    </div>
+ `;
+
+ document.getElementById("custom_modal").showModal();
+ 
+}
+ 
  function showLoading(callback) {
     const active=document.getElementById(`loading`)
     active.classList.remove("hidden");
@@ -46,38 +108,27 @@ const removeActiveClass=()=>{
         const active=document.getElementById(`loading`)
         active.classList.add("hidden");
       callback();
-    }, 3000);
+    }, 1000);
   }
   
   
   showLoading(loadCards);
   
- 
+ const likeShow=(image)=>{
+    const likeShowContainer=document.getElementById('like');
+    const div =document.createElement("div");
+    div.innerHTML=`
+    <div>
+    <img class="img-history p-2" src="${image}" alt="animal"/>
+    </div>
+    `;
+    likeShowContainer.appendChild(div);
+ };
 
 
 
- const displayDetails=(card)=>{
-    console.log(card);
-    const detailContainer=document.getElementById("modal-box");
-    
-    detailContainer.innerHTML=
-    `
-    <img src=${card.data}/>
-    `
 
-    document.getElementById("customModal").showModal();
- }
-const sortByPrice=async(a)=>{
-    const uri=(`https://openapi.programming-hero.com/api/peddy/pets`)
-    const res=await fetch(uri);
-    const data=await res.json();
-    const shortPrice=data.data;
-    const sortByPrice=shortPrice.sort((a,b)=>{
-        return b-a;
-    });
-   
-   
-}
+
 const displayPets =(pets) =>{
    
     const cardContainer=document.getElementById("cards");
@@ -143,16 +194,16 @@ const displayPets =(pets) =>{
     <hr/>
     <div class="flex justify-center gap-5 py-5 ">
      <div class="  px-4  border border-7 border-black rounded-lg">
-     <button   class="w-8 h-8 py-2">
+     <button  onclick="likeShow('${pet.image}')" class="w-8 h-8 py-2">
      <img src="https://img.icons8.com/?size=48&id=82788&format=png">
      </button>
      </div>
      <div ">
-     <button class="btn btn-outline ">Adopt</button>
+     <button  class="btn btn-outline ">Adopt</button>
  
      </div>
      <div>
-         <button onclick="loadDetails('${pet.category}')"  class="btn btn-outline">Details</button>
+         <button onclick="loadDetails('${pet.petId}')"  class="btn btn-outline ">Details</button>
      </div>
      
    </div>
@@ -170,7 +221,7 @@ const displayCategories= (categories)=>{
            const buttonContainer=document.createElement('div');
            buttonContainer.innerHTML=
            `
-           <button id="btn-${item.category}" onclick="loadCategoryCard('${item.category}')" class="btn btn-outline category-btn  ">
+           <button id="btn-${item.category}" onclick="loadCategoryCard('${item.category}')" class="   category-btn  ">
            <img class="h-6 w-6 lg:h-10 lg:w-10" src="${item.category_icon}"/>
            ${item.category}
            
@@ -184,4 +235,3 @@ const displayCategories= (categories)=>{
 };
 loadCategories();
 
-sortByPrice();

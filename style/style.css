@@ -1,5 +1,5 @@
 .active{
-   background-color: aqua;
+   background-color: rgb(14, 122, 129);
    border-radius: 20px;
   
 }
@@ -15,4 +15,18 @@ background: rgb(14, 122, 129);
 }
 .link{
     color: rgba(234, 246, 246, 0.667);
+}
+.sort{
+    font-weight: 700;
+    padding: 13px 28px 13px 28px;
+    border-radius: 12px;
+color:white;
+background: rgb(14, 122, 129);
+}
+.category-btn{
+    border: 1px solid aqua;
+    height: 50px;
+    width: 100px;
+ display: inline-flex;
+   
 }
